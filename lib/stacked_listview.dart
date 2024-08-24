@@ -138,7 +138,7 @@ class StackedListViewState extends State<StackedListView> {
             }
             opacity = opacity.clamp(0.0, 1.0);
             return AnimatedItemWidget(
-              key: UniqueKey(),
+              key: ValueKey(index),
               scrollDirection: widget.scrollDirection,
               atFirst: atFirst,
               lastOne: index == (widget.itemCount - 1),
@@ -223,7 +223,6 @@ class _AnimatedItemWidget extends State<AnimatedItemWidget>
 
   update() {
     _dragOffset = animation?.value ?? 0;
-    setState(() {});
   }
 
   _animationStatus(AnimationStatus status) {
